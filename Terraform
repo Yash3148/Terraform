@@ -11,6 +11,11 @@ resource "local_file" "pet"{
     content = "We love pets!"
 }
 
+resource    --> Block name
+local_file  --> resource type
+pet         --> resource name
+{----}      --> Arguments
+
 It will create a file named as /root/pet.txt with content as We love pets!
 
 Steps for Terraform
@@ -18,3 +23,10 @@ Steps for Terraform
 2. Terraform plan    -----> It will provide all the details and steps how the file is gonna execute.
 3. Terraform apply   -----> It will run the script of file and will excute and provide result.
 4. Terraform Delete  -----> It will delete the local.tf and delete the executed result.
+
+File Name                                                    Purpose
+
+main.tf                                        Main configuration file containing resource definition
+variables.tf                                   Contains variable declarations
+outputs.tf                                     Contains outputs from resources
+provider.tf                                    contains provider definiton
