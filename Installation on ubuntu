@@ -1,4 +1,4 @@
-Installation of Terraform on ubuntu.
+                                                               Installation of Terraform on ubuntu.
 
 $ wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 
