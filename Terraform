@@ -30,3 +30,15 @@ main.tf                                        Main configuration file containin
 variables.tf                                   Contains variable declarations
 outputs.tf                                     Contains outputs from resources
 provider.tf                                    contains provider definiton
+
+Types of Variables   ---> variables.tf
+
+1. String  ---> "/root/pet.txt"
+2. Number  ---> 1
+3. Boolean ---> True/False
+4. Any     ---> Default Value
+5. List    ---> ["cat", "dog"]
+6. Map     ---> pet1 = cat 
+                pet2 = dog
+7. Object  ---> Complex data structure
+8. tuple   ---> Complex data structure
