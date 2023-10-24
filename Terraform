@@ -1,2 +1,20 @@
 Terraform is an open-source Infrastructure as Code (IaC) tool developed by HashiCorp. It allows you to define and provision infrastructure resources and services in a declarative manner. In simple terms, Terraform enables you to describe your infrastructure and its components (such as virtual machines, networks, databases, storage, and more) as code, and then it automates the process of creating and managing those resources.
 
+Terraform is written in HCL {Hashicorp Confriguration language}.
+
+Terraform consists of Blocks and argument.
+
+Example -: vim local.tf
+
+resource "local_file" "pet"{
+    filename = "/root/pet.txt"
+    content = "We love pets!"
+}
+
+It will create a file named as /root/pet.txt with content as We love pets!
+
+Steps for Terraform
+1. Terraform init    -----> It will initalize the local.tf by downloading/installing local on base.
+2. Terraform plan    -----> It will provide all the details and steps how the file is gonna execute.
+3. Terraform apply   -----> It will run the script of file and will excute and provide result.
+4. Terraform Delete  -----> It will delete the local.tf and delete the executed result.
