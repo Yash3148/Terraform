@@ -18,11 +18,15 @@ pet         --> resource name
 
 It will create a file named as /root/pet.txt with content as We love pets!
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 Steps for Terraform
 1. Terraform init    -----> It will initalize the local.tf by downloading/installing local on base.
 2. Terraform plan    -----> It will provide all the details and steps how the file is gonna execute.
 3. Terraform apply   -----> It will run the script of file and will excute and provide result.
 4. Terraform Delete  -----> It will delete the local.tf and delete the executed result.
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
 
 File Name                                                    Purpose
 
@@ -31,14 +35,74 @@ variables.tf                                   Contains variable declarations
 outputs.tf                                     Contains outputs from resources
 provider.tf                                    contains provider definiton
 
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
 Types of Variables   ---> variables.tf
 
 1. String  ---> "/root/pet.txt"
 2. Number  ---> 1
 3. Boolean ---> True/False
 4. Any     ---> Default Value
-5. List    ---> ["cat", "dog"]
+5. List    ---> ["cat", "dog"]  Set are similar to list but in set we cant have duplicate value i.e, for single list we cannot have two cat or dogs.
 6. Map     ---> pet1 = cat 
                 pet2 = dog
 7. Object  ---> Complex data structure
 8. tuple   ---> Complex data structure
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                        Example of variables.tf
+
+1. Example for list
+variable "prefix" {
+    defaults = ["Mr", "Mrs", "Sir"]     // hcl is correct
+    type = list(string)
+}
+
+variable "prefix" {
+    defaults = [1, 2, 3]                // hcl is correct
+    type = list(number)
+}
+
+variable "prefix" {
+    defaults = ["Mr", "Mrs", "Sir"]     // hcl is incorrect
+    type = list(number)
+}
+
+variable "prefix" {
+    defaults = [1, 2, 3]               // hcl is incorrect
+    type = list(string)
+}
+
+2. Example for tuple 
+variable kitty {
+    type = tuple([string, number, bool])
+    default = ["cat", 7, true]
+}
+
+3. Example for Map
+variable "jedi" {
+     type = map
+     default = {                        ----> variable.tf
+     filename = "/root/first-jedi"
+     content = "phanius"
+     }
+}
+
+resource "local_file" "jedi" {
+     filename = var.jedi["filename"]  ----> main.tf
+     content = var.jedi["content"]
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+In terraform, we can keep all variables content in file named as terraform.tfvars / terraform.tfvars.json / auto.tfvars.json / auto.tfvars
+If we have given other name for tfvars then command will be $terraform apply -var-file variables.tfvars
+
+example-: 
+filename: "/root/pets.txt"
+content: "Yoshita"
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+
