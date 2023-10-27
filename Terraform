@@ -222,3 +222,26 @@ PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-poli
 UBUNTU_CODENAME=jammy
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                                      Meta Arguments
+                            
+1. Depends on
+2. Lifecycle
+
+3. Count
+ # Length --->                        
+ resource "local_file" "pet"{
+    filename = var.filename[count.index]         {main.tf}
+    count = length(var.filename)
+ }
+
+ variable "filename" {
+    default = [
+        "/root/pets.txt"                       {variables.tf}
+        "/root/dogs.txt"
+        "/root/cats.txt"
+    ]
+ }
+
+ # for_each
+ 
