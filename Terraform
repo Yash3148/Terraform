@@ -243,5 +243,33 @@ UBUNTU_CODENAME=jammy
     ]
  }
 
+ Example 2:
+ resource "local_sensitive_file" "name" {
+    filename = var.users[count.index]
+    content = var.content
+    count 
+ }
+
+variable "users" {
+    type = list
+}
+variable "content" {
+    default = "password: S3cr3tP@ssw0rd"
+  
+}
+
  # for_each
- 
+
+resource "local_sensitive_file" "name" {
+    filename = each.value                                                                    {main.tf}
+    for_each = toset(var.users)              # Here toset helps us to convert list(string) type to set type.                                                                    
+    content = var.content
+}
+
+variable "users" {
+    type = list(string)
+    default = [ "/root/user10", "/root/user11", "/root/user12", "/root/user10"]             {variables.tf}
+}     
+variable "content" {
+    default = "password: S3cr3tP@ssw0rd"
+}
