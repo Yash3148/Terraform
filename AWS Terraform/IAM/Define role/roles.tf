@@ -12,8 +12,3 @@ resource "aws_iam_user_policy" "admin_access" {
 
   policy = data.template_file.admin_access_policy.rendered
 }
-
-resource "aws_iam_policy_attachment" "admin_access_attachment" {
-  policy_arn = aws_iam_user_policy.admin_access.arn
-  users      = [aws_iam_user.yoshita.name]
-}
