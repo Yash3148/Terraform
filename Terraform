@@ -273,3 +273,13 @@ variable "users" {
 variable "content" {
     default = "password: S3cr3tP@ssw0rd"
 }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+provider      AWS                 Azure                    GCP                         VmwarevSphere
+ 
+resource  aws_instance     azure_virtual_machine     google_compute_instance      vsphere_virtual_machine
+
+option      user_data           custom_data              meta_data                     user_data.txt
+ 
+-------------------------------------------------------------------------------------------------------------------------------------------------
