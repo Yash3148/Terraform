@@ -1,0 +1,14 @@
+Terraform remote state refers to the storage and management of Terraform's state files in a location that is separate from your local workspace.
+
+Terraform uses state files to keep track of the resources it manages, their current status, and the relationships between them.
+
+Remote state allows multiple users and Terraform runs to collaborate on the same infrastructure project and keep their state files synchronized.
+
+# terraform state <subcommand> [options] [args]
+
+subcommand ---> list, mv, pull, rm, show
+
+# terraform state rm local_file.hall_of_fame
+
+# terraform state mv random_pet.super_pet_1 random_pet.ultra_pet
+Here we are changing the resource name from super_pet_1 to ultra_pet  --> It will change it in state file.
