@@ -1,0 +1,13 @@
+# In Terraform, the taint command is used to mark a resource instance as "tainted" within your infrastructure. 
+
+# Tainting a resource means that you have identified a specific resource that you want Terraform to recreate during the next apply operation. 
+
+#This is often used when you want to force Terraform to destroy and recreate a resource due to issues or changes in the configuration that can't be handled by a simple update.
+
+terraform taint <resource_type>.<resource_name>
+
+
+terraform untaint aws_instance.ProjectB
+
+
+
