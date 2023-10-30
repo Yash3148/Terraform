@@ -1,0 +1,7 @@
+The terraform import command in Terraform is used to associate an existing resource with a configuration managed by Terraform.
+
+This command is particularly useful when you have resources that were created outside of Terraform, and you want to start managing them using Terraform without recreating them.
+
+terraform import <Terraform Resource Identifier> <Provider Resource Identifier>
+
+terraform import aws_instance.example i-0123456789abcdef0
