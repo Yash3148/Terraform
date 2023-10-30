@@ -1,0 +1,108 @@
+                                                     Functions
+
+1. String Function
+
+$ terraform console
+
+> split (",", "ami-xyz, AMI-ABC, ami-efg")  split (",", var.ami)
+["ami-xyz", "AMI-ABC", "ami-efg"]
+
+> lower (var.ami)
+ami-xyz, ami-abc, ami-efg
+
+> upper (var.ami)
+AMI-XYZ, AMI-ABC, AMI-EFG
+
+> title (var.ami)
+Ami-Xyz, AMI-ABC, Ami-Efg 
+
+> substr (var.ami, 0, 7)
+ami-xyz 
+
+> substr (var.ami, 8, 7)
+AMI-ABC 
+
+> substr (var.ami, 16, 7)
+ami-efg
+
+> join (",", var.ami)
+ami-xyz, AMI-ABC, ami-efg
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+2. Collection Function
+
+$ terraform console
+
+> length(var.ami)
+3
+
+> index(var.ami, "AMI-ABC")
+1
+
+> element(var.ami, 2)
+ami-efg
+
+> contains(var.ami, "AMI-ABC")
+true
+
+> contains(var.ami, "AMI-AZY")
+false
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+3. Map Function
+
+$ terraform console
+
+> keys (var.map)
+[
+    "us-east-1",
+    "ca-central-1",
+    "ap-south-1"
+]
+
+> values (var.map)
+[
+   "ami-xyz",
+   "AMI-ABC",
+   "ami-efg"
+]
+
+> lookup (var.map, "ca-central-1")
+AMI-ABC
+
+> lookup (var.map, "us-west-2")
+Error!!
+
+> > lookup (var.map, "us-west-2", "ami-pqr")
+ami-pqr
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+4. Numeric Function
+
+$ terraform console
+
+> max (-1, -2, -10, 200, -250)
+200
+
+> min (-1, -2, -10, 200, -250)
+-250
+
+>max (var.num)
+250
+
+> ceil (10.1)
+11
+
+> ceil (10.9)
+11
+
+> floor (10.1)
+10
+
+> floor (10.9)
+10
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
