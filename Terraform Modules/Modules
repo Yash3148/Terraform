@@ -1,0 +1,1 @@
+In Terraform, modules are a way to organize, encapsulate, and reuse configuration code. They allow you to break down your infrastructure code into smaller, manageable pieces, making it easier to maintain and share infrastructure configurations. Modules promote reusability and modularity in your Terraform codebase
